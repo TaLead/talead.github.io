@@ -1,0 +1,23 @@
+{
+  "name": "talead-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TALEAD corporate website (EN/AR)",
+  "scripts": {
+    "dev": "next dev -p 3210",
+    "build": "next build",
+    "preview": "node scripts/serve.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.43",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "5.9.3"
+  }
+}

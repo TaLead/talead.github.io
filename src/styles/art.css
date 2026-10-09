@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Generated illustrations
+   ========================================================================== */
+
+.art {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Animations pause while their element is off-screen (see RevealObserver) */
+[data-motion='off'],
+[data-motion='off'] * {
+  animation-play-state: paused !important;
+}
+
+/* Light pulses travelling along circuit traces and data arcs (paths use pathLength=100) */
+.art-pulse {
+  stroke-dasharray: 8 192;
+  stroke-dashoffset: 200;
+  animation: art-pulse 5s linear infinite;
+}
+
+@keyframes art-pulse {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.art-scan {
+  animation: art-scan 3.6s var(--ease-in-out) infinite alternate;
+}
+
+@keyframes art-scan {
+  from {
+    transform: translateY(-104px);
+  }
+  to {
+    transform: translateY(116px);
+  }
+}
+
+.art-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: art-ping 2.4s ease-out infinite;
+}
+
+@keyframes art-ping {
+  from {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   Home hero: fan of glass panels (CSS 3D)
+   ========================================================================== */
+
+.hero-panels {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  perspective: 1500px;
+  perspective-origin: 70% 45%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+[dir='rtl'] .hero-panels {
+  transform: scaleX(-1);
+}
+
+.hero-panel {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: clamp(250px, 29vw, 500px);
+  aspect-ratio: 0.82;
+  transform: translate(-50%, -50%) translateZ(var(--z)) rotateZ(var(--rz)) rotateY(var(--ry)) rotateX(10deg);
+  opacity: var(--o);
+}
+
+.hero-panel__face {
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 32%),
+    linear-gradient(150deg, var(--c1) 0%, var(--c2) 78%);
+  box-shadow:
+    inset 3px 3px 0 rgba(255, 255, 255, 0.3),
+    inset 0 0 40px rgba(255, 255, 255, 0.12),
+    0 24px 40px -24px rgba(0, 0, 0, 0.8);
+  animation: panel-float 11s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.55s);
+  will-change: transform;
+}
+
+@keyframes panel-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotateY(0deg);
+  }
+  50% {
+    transform: translate3d(-24px, -16px, 46px) rotateY(10deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-panel--minor {
+    display: none;
+  }
+
+  .hero-panel {
+    width: 62vw;
+  }
+
+  .hero-panels {
+    opacity: 0.75;
+  }
+}
